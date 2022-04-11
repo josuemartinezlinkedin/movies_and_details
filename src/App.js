@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import MovieCard from './components/movie-card/movie-card.component.jsx'
 import './App.css'
+//svg from https://www.svgrepo.com/svg/76804/search
+import SearchIcon from './search.svg'
 const axios = require("axios");
 
 const App = () => {
@@ -50,12 +52,9 @@ const App = () => {
     // }
 
     return (
-        <div>
-            <h1>Hello Dear</h1>
-            <button onClick={() => alert('Have more to do here')}>search by title</button>
-            <button onClick={() => alert('Have more to do here')}>search by keywork</button>
-            <div>
-                <h1>Movies and Details</h1>
+        <div className="app">
+            <h1>Movies and Details</h1>
+            <div className="search">
                 <input 
                 placeholder='search for movies'
                 value={searchFor}
@@ -63,8 +62,12 @@ const App = () => {
                 />
                 <img
                 alt="search"
+                src={SearchIcon}
                 onClick={()=>searchMovies(searchFor)}
                 />
+                {/* TODO onClick change letter in Params to searhc for titles instead of keywords */}
+                {/* <button onClick={() => alert('Have more to do here')}>search by title</button> */}
+                {/* <button onClick={() => alert('Have more to do here')}>search by keywork</button> */}
             </div>
             { 
             movies.length > 0
